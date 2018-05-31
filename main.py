@@ -5,9 +5,9 @@ import cProfile
 
 
 if __name__ == '__main__':
-  n=12
-  pollard1(n)
-  pollard2(n)
-  pollard3(n)
+    n=49838
+    pollard1(n)
+    pollard2(n)
+    pollard3(n)
 
     #cProfile.run("pollard1(100)")
