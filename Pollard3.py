@@ -29,11 +29,9 @@ def pollard3(n):
         powResult = modPowMethod(a, tour, n)
         print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(1) ) 
         a = a ** tour
-        if(pgcd1( nombre, n) != 1): 
-            pgcdResult = pgcd1( nombre, n) 
+        if(pgcd( nombre, n) != 1): 
+            pgcdResult = pgcd( nombre, n) 
             print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
             # si un des facteurs divise n, on fait 
             continuer = False
         if(tour == 10): continuer = False 
-        
-pollard3(299)

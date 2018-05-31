@@ -1,6 +1,6 @@
 import numpy as np
 
-def pgcd(a, b):
+def pgcd1(a, b):
     a, b = np.broadcast_arrays(a, b)
     a = a.copy()
     b = b.copy()
@@ -12,7 +12,7 @@ def pgcd(a, b):
     return a
 
 
-def pgcd1(a: int, b: int):
+def pgcd(a: int, b: int):
     """
 
     :param a: Entier
@@ -23,7 +23,7 @@ def pgcd1(a: int, b: int):
         return a
     else:
         r = a % b
-        return pgcd1(b, r)
+        return pgcd(b, r)
 
 def factors(a: int):
     """
