@@ -1,5 +1,6 @@
 
 from utils import *
+import psutil; 
 import sys
 
 ## Initializing argument or use default value for n = 299
@@ -24,16 +25,22 @@ def pollard3(n):
         # si un des facteurs ne divise pas n, on traite et on continue
         tour += 1;
         nombre = ((a**(tour))-1)
-        result = diviseurPremier(nombre)
+        ##result = diviseurPremier(nombre)
         powResult = modPowMethod(a, tour, n)
-        print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(result) )
+        print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(1) )
         a = a ** tour
-        for i in result:
-            if(pgcd(i, n) != 1):
-                print("Trouvé ! p : " + str(i) + " et q=n/p: " + str(int(n/i)))
-                # si un des facteurs divise n, on fait
-                continuer = False
+        ##for i in result:
+        if(pgcd( nombre, n) != 1):
+            pgcdResult = pgcd( nombre, n)
+            print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult)))
+            # si un des facteurs divise n, on fait
+            continuer = False
                 
         if(tour == 10): continuer = False
         
 pollard3(n)
+
+
+#print(psutil.cpu_percent())
+#print(psutil.virtual_memory()) #  physical memory usage
+##psutil.virtual_memory()

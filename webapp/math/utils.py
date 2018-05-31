@@ -10,7 +10,7 @@ def pgcd(a: int, b: int):
     else:
         r = a % b
         return pgcd(b, r)
-
+    
 def factors(a: int):
     """
 
@@ -50,7 +50,9 @@ def stripeone(ListePrimeFactors):
     for i in ListePrimeFactors:
         if i == 1:
             ListePrimeFactors.remove(i)
+            return ListePrimeFactors;
     return ListePrimeFactors
+
 
 
 def powTwo(x):
