@@ -15,15 +15,5 @@ def pollard2(n: int):
     return print('p = ' + str(p) + ', q = ' + str(int(n/p)) + " nombre itération " + str(compteur))
 
 
-    f = lambda x: x * x + b
-    x0 = 3
-    b = 1
-    tab = []
-    tab.append(x0)
-    for i in range(1, n):
 
-        print(i)
-        tab.append(f(tab[i-1 % n]))
-
-    return tab
 

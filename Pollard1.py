@@ -25,10 +25,7 @@ def pollard1(n):
                 iteration += 1
                 if p != 1 and p != n:
                     q = n / p
-                    print(p)
-                    print(q)
-                    print(iteration)
-                    return p
+                    return print('p = ' + str(p) + ', q = ' + str(q) + " nombre itération " + str(iteration))
 
 
 
