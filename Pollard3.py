@@ -24,18 +24,20 @@ def pollard3(n):
     while(continuer):
         # si un des facteurs ne divise pas n, on traite et on continue
         tour += 1;
-        ##result = diviseurPremier(nombre) 
-        nombre = ((a**(tour))-1)
-        powResult = modPowMethod(a, tour, n)
-        #print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(1) ) 
+        
         a = a ** tour
+        ##result = diviseurPremier(nombre) 
+        nombre = (a-1)
+        powResult = pow(a, tour, n)
+        ##powResult = modPowMethod(a, tour, n)
+        #print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(1) ) 
         if(pgcd( nombre, n) != 1): 
-            p = pgcd( nombre, n) 
+            p = pgcd(nombre, n)
             #print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
             # si un des facteurs divise n, on fait 
             continuer = False
             return print('p = ' + str(p) + ', q = ' + str(int(n/p)) + " nombre itération " + str(tour))
 
-        if(tour == 10000): continuer = False
+        if(tour == 5000): continuer = False
 
 
