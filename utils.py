@@ -1,4 +1,19 @@
-def pgcd(a: int, b: int):
+import numpy as np
+
+
+def pgcd(a, b):
+    a, b = np.broadcast_arrays(a, b)
+    a = a.copy()
+    b = b.copy()
+    pos = np.nonzero(b)[0]
+    while len(pos) > 0:
+        b2 = b[pos]
+        a[pos], b[pos] = b2, a[pos] % b2
+        pos = pos[b[pos]!=0]
+    return a
+
+
+def pgcd1(a: int, b: int):
     """
 
     :param a: Entier
@@ -10,7 +25,7 @@ def pgcd(a: int, b: int):
     else:
         r = a % b
         return pgcd(b, r)
-    
+
 def factors(a: int):
     """
 
@@ -50,9 +65,8 @@ def stripeone(ListePrimeFactors):
     for i in ListePrimeFactors:
         if i == 1:
             ListePrimeFactors.remove(i)
-            return ListePrimeFactors;
+            break
     return ListePrimeFactors
-
 
 
 def powTwo(x):
