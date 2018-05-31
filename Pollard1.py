@@ -1,4 +1,4 @@
-from utils import pgcd
+from .utils import pgcd
 from math import sqrt
 
 

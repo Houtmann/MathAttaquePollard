@@ -1,6 +1,5 @@
-from utils import pgcd
-
-<<<<<<< Updated upstream
+from .utils import pgcd
+import asyncio
 def pollard2(n: int):
     """Factorisation d'un nombre entier décomposable (méth. de pollard)"""
     f = lambda z: z * z + 1
@@ -14,7 +13,7 @@ def pollard2(n: int):
         y = f(f(y)) % n
         p = pgcd(x - y, n)
     return print('p = ' + str(p) + ', q = ' + str(int(n/p)) + " nombre itération " + str(compteur))
-=======
+
 
     f = lambda x: x * x + b
     x0 = 3
@@ -27,4 +26,4 @@ def pollard2(n: int):
         tab.append(f(tab[i-1 % n]))
 
     return tab
->>>>>>> Stashed changes
+
