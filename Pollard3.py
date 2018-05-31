@@ -27,14 +27,14 @@ def pollard3(n):
         ##result = diviseurPremier(nombre) 
         nombre = ((a**(tour))-1)
         powResult = modPowMethod(a, tour, n)
-        print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(1) ) 
+        #print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(1) ) 
         a = a ** tour
         if(pgcd( nombre, n) != 1): 
-            pgcdResult = pgcd( nombre, n) 
-            print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
+            p = pgcd( nombre, n) 
+            #print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
             # si un des facteurs divise n, on fait 
             continuer = False
-            return int(n / pgcdResult)
+            return print('p = ' + str(p) + ', q = ' + str(int(n/p)) + " nombre itération " + str(tour))
 
         if(tour == 10000): continuer = False
 
