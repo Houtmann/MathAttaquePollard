@@ -24,7 +24,7 @@ def pollard1(n):
                 p = pgcd(tableaupollard1[i] - tableaupollard1[j], n)
                 iteration += 1
                 if p != 1 and p != n:
-                    q = n / p
+                    q = (int(n / p))
                     return print('p = ' + str(p) + ', q = ' + str(q) + " nombre itération " + str(iteration))
 
 
