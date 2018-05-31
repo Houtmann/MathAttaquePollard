@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def pgcd(a, b):
     a, b = np.broadcast_arrays(a, b)
     a = a.copy()
@@ -24,7 +23,7 @@ def pgcd1(a: int, b: int):
         return a
     else:
         r = a % b
-        return pgcd(b, r)
+        return pgcd1(b, r)
 
 def factors(a: int):
     """
@@ -65,7 +64,7 @@ def stripeone(ListePrimeFactors):
     for i in ListePrimeFactors:
         if i == 1:
             ListePrimeFactors.remove(i)
-            break
+            return ListePrimeFactors
     return ListePrimeFactors
 
 
