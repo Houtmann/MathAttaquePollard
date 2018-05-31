@@ -22,7 +22,7 @@ def pollard3(n):
     diviseurTrouve = True
     while(diviseurTrouve):
         # si un des facteurs ne divise pas n, on traite et on continue
-        iteration += 1;
+        iteration += 1
         nombre = (a-1)
         a = pow(a, iteration, n)
         #print(str(a) + '^' + str(tour) + ' = ' + str(a) + ' modulo (' , str(n) , ') => diviseur de : ' + str(a-1) + ':' + str(1) ) 
