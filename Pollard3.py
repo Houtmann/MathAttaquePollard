@@ -1,6 +1,7 @@
 
 from utils import *
 import sys
+from math import gcd
 
 ## Initializing argument or use default value for n = 299
 if len(sys.argv) > 1:
@@ -29,11 +30,11 @@ def pollard3(n):
         print(str(a) + '^' + str(tour) + ' = ' + str(powResult) + ' modulo (' , str(n) , ') => diviseur de : ' + str(powResult-1) + ':' + str(result) )
         a = a ** tour
         for i in result:
-            if(pgcd(i, n) != 1):
+            if(gcd(i, n) != 1):
                 print("Trouvé ! p : " + str(i) + " et q=n/p: " + str(int(n/i)))
                 # si un des facteurs divise n, on fait
                 continuer = False
                 
         if(tour == 10): continuer = False
         
-pollard3(n)
+
