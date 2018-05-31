@@ -18,8 +18,8 @@ class MyDialog(object):
     def btnPollard3(self):
         if self.pushButton_3.isChecked():
             n = self.lineEdit.text()
-
-            print(cProfile.run("Pollard3.pollard3(int(n)"))
+            p = Pollard3.pollard3(int(n))
+            print(p)
 
 
     def btnPollard2(self):

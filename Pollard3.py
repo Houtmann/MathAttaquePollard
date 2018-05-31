@@ -34,4 +34,8 @@ def pollard3(n):
             print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
             # si un des facteurs divise n, on fait 
             continuer = False
-        if(tour == 10): continuer = False 
+            return int(n / pgcdResult)
+
+        if(tour == 10000): continuer = False
+
+
