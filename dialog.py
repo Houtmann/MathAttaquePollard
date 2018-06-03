@@ -11,28 +11,51 @@ import Pollard2
 import Pollard3
 import Pollard1
 import cProfile
-
+import cProfile, pstats, io
 
 class MyDialog(object):
 
     def btnPollard3(self):
         if self.pushButton_3.isChecked():
             n = self.lineEdit.text()
-            p = Pollard3.pollard3(int(n))
-            print(p)
+            if n !='':
+                pr = cProfile.Profile()
+                pr.enable()
+                p = Pollard3.pollard3(int(n))
+
+                pr.disable()
+                s = io.StringIO()
+                sortby = 'cumulative'
+                ps = pstats.Stats(pr, stream=s)
+                ps.print_stats()
+                print(s.getvalue())
+            else:
+                self.showdialog()
 
 
     def btnPollard2(self):
         if self.pushButton_2.isChecked():
             n = self.lineEdit.text()
-
-            print(Pollard2.pollard2(int(n)))
+            if n != '':
+                pr = cProfile.Profile()
+                pr.enable()
+                print(Pollard2.pollard2(int(n)))
+                pr.disable()
+                s = io.StringIO()
+                sortby = 'cumulative'
+                ps = pstats.Stats(pr, stream=s)
+                ps.print_stats()
+                print(s.getvalue())
+            else:
+                self.showdialog()
 
     def btnPollard1(self):
         if self.pushButton_1.isChecked():
             n = self.lineEdit.text()
-
-            print(Pollard1.pollard1(int(n)))
+            if n != '':
+                print(Pollard1.pollard1(int(n)))
+            else:
+                self.showdialog()
 
 
     def setupUi(self, MyDialog):
@@ -92,8 +115,22 @@ class MyDialog(object):
 
         self.label.setText(_translate("MyDialog", "Nombre :"))
 
+    def showdialog(self):
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+
+        msg.setText("Erreur Veuillez entrer un nombre")
+
+        msg.setWindowTitle("Erreur Veuillez entrer un nombre")
+
+        msg.setStandardButtons(QMessageBox.Ok)
+
+        retval = msg.exec_()
+
+
+
 import sys
-from PyQt5.QtWidgets import QDialog, QApplication
+from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
 from dialog import MyDialog
 
 class AppWindow(QDialog):
