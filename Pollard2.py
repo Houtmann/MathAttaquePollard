@@ -1,5 +1,5 @@
 from utils import pgcd
-import asyncio
+
 def pollard2(n: int):
     """Factorisation d'un nombre entier décomposable (méth. de pollard)"""
     f = lambda z: z * z + 1

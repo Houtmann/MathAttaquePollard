@@ -1,15 +1,10 @@
-import numpy as np
+from alphabet import alphabet
+import math
 
-def pgcd1(a, b):
-    a, b = np.broadcast_arrays(a, b)
-    a = a.copy()
-    b = b.copy()
-    pos = np.nonzero(b)[0]
-    while len(pos) > 0:
-        b2 = b[pos]
-        a[pos], b[pos] = b2, a[pos] % b2
-        pos = pos[b[pos]!=0]
-    return a
+def est_premier(n):
+    if n % 2 == 0 and n > 2:
+        return False
+    return all(n % i for i in range(3, int(math.sqrt(n)) + 1, 2))
 
 
 def pgcd(a: int, b: int):
@@ -24,3 +19,12 @@ def pgcd(a: int, b: int):
     else:
         r = a % b
         return pgcd(b, r)
+
+
+def message_to_number(message):
+    number =''
+    message_lower = message.lower()
+    for i in message_lower:
+        number = number + str(alphabet[i])
+
+    return int(number)

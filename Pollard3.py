@@ -3,11 +3,7 @@ from utils import *
 import sys
 from math import gcd
 
-## Initializing argument or use default value for n = 299
-if len(sys.argv) > 1:
-    n = int(sys.argv[1])
-else:
-    n = 299
+
 
 def pollard3(n):
     """Variable pour compter le nombre d'irération"""
