@@ -2,36 +2,41 @@ import random
 from utils import *
 
 def calculerE(p, q):
-    e = 1
+    e = 3
     phin = ((int(p)-1)*(int(q)-1))
     while pgcd(e, phin) != 1:
         e += 1
     return e
 
-def chiffrement(p, q, message):
+def chiffrement(p, q, message, e):
     n = p * q
-    return pow(message, calculerE(p,q), p*q)
+    return pow(int(message), e, n)
 
-chiffrement(53, 97, 'JEVOUSAIME')
+
+def calculerD(p, q, e):
+    d = 3
+    phin = ((int(p) - 1) * (int(q) - 1))
+    while ((d * e) % phin) != 1:
+        d += 1
+    return d
 
 def inverseModulo(e, phin):
     if(pgcd(e, phin) == 1):
-        d = 1
+        d = 3
         while ((e*d) % phin != 1):
             d += 1
         return d
     return False
 
 
-def dechiffrement(p, q, message):
+def dechiffrement(p, q, message, e):
     n = p * q
-    e = calculerE(p,q)
+
     phin = ((p - 1) * (q - 1))
-    d = inverseModulo(e, phin)
-    print(d)
+    d = calculerD(p, q , e)
     messageDecode = (pow(message, d) ** n)
 
-    return messageDecode
+    return pow(int(message), d, n)
 
 def construction_cle(p, q):
     """

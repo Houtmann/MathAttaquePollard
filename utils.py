@@ -22,13 +22,12 @@ def pgcd(a: int, b: int):
 
 
 def message_to_number(n, message):
-    number = ''
+    number = []
     message_lower = message.lower()
 
     for i in message_lower:
-        number = number + str(alphabet[i])
+        number.append(str(alphabet[i]))
 
-    return int(number)
+    return number
 
 
-print(message_to_number(5141, 'JEVOUSAIME'))
