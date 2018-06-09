@@ -10,8 +10,6 @@ def calculerE(p, q):
 
 def chiffrement(p, q, message):
     n = p * q
-
-
     return pow(message, calculerE(p,q), p*q)
 
 chiffrement(53, 97, 'JEVOUSAIME')

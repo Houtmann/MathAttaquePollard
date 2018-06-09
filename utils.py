@@ -21,27 +21,14 @@ def pgcd(a: int, b: int):
         return pgcd(b, r)
 
 
-"""def message_to_number(n, message):
-    nBlock = int(len(str(n)) - 1)
-
-
+def message_to_number(n, message):
+    number = ''
     message_lower = message.lower()
-    number =''
-    message_tableau = []
-    for i in message_lower:
 
+    for i in message_lower:
         number = number + str(alphabet[i])
 
-    j = 0
-
-    while number != 0:
-
-        message_tableau[j] = int(number[int(len(number) - nBlock) : len(number)])
-        number = int(number[0: int(len(number) - nBlock) ])
-        print(message_tableau[j])
-        j += 1
-
-    return message_tableau
+    return int(number)
 
 
-message_to_number(5141, 'JEVOUSAIME')"""""
+print(message_to_number(5141, 'JEVOUSAIME'))
