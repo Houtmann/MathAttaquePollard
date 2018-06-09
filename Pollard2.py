@@ -1,6 +1,6 @@
 from utils import pgcd
 
-def pollard2(n: int):
+def pollard2(n):
     """Factorisation d'un nombre entier décomposable (méth. de pollard)"""
     f = lambda z: z * z + 1
     x = 2
@@ -12,7 +12,7 @@ def pollard2(n: int):
         x = f(x) % n
         y = f(f(y)) % n
         p = pgcd(x - y, n)
-    return print('p = ' + str(p) + ', q = ' + str(int(n/p)) + " nombre itération " + str(compteur))
+    return print('Pour n = ' + str(n) + ' p = ' + str(p) + ', q = ' + str(int(n/p)) + " nombre itération " + str(compteur))
 
 
 

@@ -9,23 +9,24 @@ def pollard1(n):
     x0 = 3
     b = 1
     """On construit le tableau de Pollard en prenant comme valeur initiale x0"""
-    tableaupollard1 = []
-    tableaupollard1.append(x0)
+    tableaupollard1 = set()
+    tableaupollard1.add(x0)
 
     """Variable pour compter le nombre d'itération """
     iteration = 0
 
     """Algo de pollard1"""
     for i in range(1, int(sqrt(n))):
-        tableaupollard1.append(f(tableaupollard1[i-1]) % n)
+        tableaupollard1.add((i-1) % n)
 
     for i in range(0, len(tableaupollard1)-1):
             for j in range(i+1, len(tableaupollard1)):
-                p = pgcd(tableaupollard1[i] - tableaupollard1[j], n)
+                p = pgcd(i - j, n)
                 iteration += 1
                 if p != 1 and p != n:
                     q = (int(n / p))
-                    return print('p = ' + str(p) + ', q = ' + str(q) + " nombre itération " + str(iteration))
+                    return print('Pour n = ' + str(n) + ' p = ' + str(p) + ', q = ' + str(q) + " nombre itération " + str(iteration))
+
 
 
 

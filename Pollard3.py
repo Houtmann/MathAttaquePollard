@@ -28,7 +28,7 @@ def pollard3(n):
             diviseurTrouve = False
             #print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
             # si un des facteurs divise n, on fait 
-            return print('p = ' + str(int(n/p)) + ', q = ' + str(p) + " nombre itération " + str(iteration))
+            return print('Pour n = ' + str(n) + ' p = ' + str(int(n/p)) + ', q = ' + str(p) + " nombre itération " + str(iteration))
 
         """On s'assure une sécurité pour éviter une boucle infinie"""
         if(iteration == 50000): diviseurTrouve = False

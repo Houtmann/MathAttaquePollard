@@ -21,7 +21,7 @@ def pgcd(a: int, b: int):
         return pgcd(b, r)
 
 
-def message_to_number(n, message):
+"""def message_to_number(n, message):
     nBlock = int(len(str(n)) - 1)
 
 
@@ -44,4 +44,4 @@ def message_to_number(n, message):
     return message_tableau
 
 
-message_to_number(5141, 'JEVOUSAIME')
+message_to_number(5141, 'JEVOUSAIME')"""""
