@@ -18,6 +18,7 @@ def calculerD(p, q, e):
     phin = ((int(p) - 1) * (int(q) - 1))
     while ((d * e) % phin) != 1:
         d += 1
+
     return d
 
 def inverseModulo(e, phin):
@@ -33,8 +34,10 @@ def dechiffrement(p, q, message, e):
     n = p * q
 
     phin = ((p - 1) * (q - 1))
+
     d = calculerD(p, q , e)
-    messageDecode = (pow(message, d) ** n)
+
+
 
     return pow(int(message), d, n)
 
