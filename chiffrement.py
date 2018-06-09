@@ -3,14 +3,18 @@ from utils import *
 
 def calculerE(p, q):
     e = 1
-    phin = ((p-1)*(q-1))
+    phin = ((int(p)-1)*(int(q)-1))
     while pgcd(e, phin) != 1:
         e += 1
     return e
 
 def chiffrement(p, q, message):
+    n = p * q
+
+
     return pow(message, calculerE(p,q), p*q)
 
+chiffrement(53, 97, 'JEVOUSAIME')
 
 def inverseModulo(e, phin):
     if(pgcd(e, phin) == 1):
@@ -43,7 +47,8 @@ def construction_cle(p, q):
     else:
         nombrePremier = False;
         while nombrePremier != True:
-            n = random.randint(1000, 10000000000000)
-            if (est_premier(n)):
+            p = random.randint(1000, 10000000000000)
+            q = random.randint(1000, 10000000000000)
+            if (est_premier(p) and est_premier(q)):
                 nombrePremier = True
-                return n
+                return p * q
