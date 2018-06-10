@@ -33,3 +33,4 @@ def pollard3(n):
         
         """On s'assure une sécurité pour éviter une boucle infinie"""
         if(iteration == 50000): diviseurTrouve = False
+         
