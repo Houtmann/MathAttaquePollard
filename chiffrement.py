@@ -57,5 +57,4 @@ def construction_cle(p, q):
                 return p * q
 
             
-## chiffrement exemple avec le message M = CO
 

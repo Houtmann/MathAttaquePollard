@@ -87,3 +87,27 @@ if __name__ == '__main__':
     ps = pstats.Stats(pr, stream=s)
     ps.print_stats()
     print(s.getvalue())"""
+    
+    
+    
+    
+'''MENER L ATTAQUE DE POLLARD 3 '''
+    
+## chiffrement exemple avec le message M = CO
+## Dans la perspective où Matt, un attaque souhaite attaquer avec Pollard
+## Il lui suffit de récupérer la clé publique d'alice et son message encodé
+## Matt alors obtient C (le message chiffré) et (n,e)
+def attaqueDeMAtt(C, n, e):
+    ## il faut casser n
+    pq = pollard3(n)
+    p = pq[0]
+    q = pq[1]
+    
+    d = 3
+    phin = ((int(p) - 1) * (int(q) - 1))
+    while ((d * e) % phin) != 1:
+        d += 1
+
+    print("Une fois d, inverse de e dans Z/n, alors on a gagné car on a récupéré la clé privée qui nous permet de décrypter ou du moins, bruterforce le message encodé.")
+    print("La complexté est de n!")
+    

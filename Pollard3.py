@@ -23,12 +23,13 @@ def pollard3(n):
         a = pow(a, iteration, n)
         #print(str(a) + '^' + str(tour) + ' = ' + str(a) + ' modulo (' , str(n) , ') => diviseur de : ' + str(a-1) + ':' + str(1) ) 
         """Si le pcdg est différent de 1, on a trouvé un diviseur de n"""
-        if(pgcd( nombre, n) != 1): 
-            p = pgcd(nombre, n)
+        if(pgcd( nombre, n) != 1):
+            q = pgcd(nombre, n)
             diviseurTrouve = False
             #print("Trouvé ! p : " + str(pgcdResult)  + " et q=n/p: " + str(int(n/pgcdResult))) 
             # si un des facteurs divise n, on fait 
-            return print('Pour n = ' + str(n) + ' p = ' + str(int(n/p)) + ', q = ' + str(p) + " nombre itération " + str(iteration))
-
+            print('Pour n = ' + str(n) + ' p = ' + str(int(n/q)) + ', q = ' + str(q) + " nombre itération " + str(iteration))
+            return [n/q, q]
+        
         """On s'assure une sécurité pour éviter une boucle infinie"""
         if(iteration == 50000): diviseurTrouve = False
