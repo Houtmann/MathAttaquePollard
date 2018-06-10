@@ -15,7 +15,7 @@ def pgcd(a: int, b: int):
         return pgcd(b, r)
 
 
-def message_to_number(n, message):
+def message_to_number(message):
     number = []
     message_lower = message.lower()
 
@@ -23,6 +23,13 @@ def message_to_number(n, message):
         number.append(str(alphabet[i]))
 
     return number
+
+def number_to_message(messageChiffre):
+    letter = []
+    
+    for i in messageChiffre:
+        letter.append(list(alphabet.keys())[list(alphabet.values()).index(i)])
+    return letter
 
 
 def est_premier(n: int):	
@@ -35,3 +42,4 @@ def est_premier(n: int):
         if n % i == 0:	
             return False	
     return True
+

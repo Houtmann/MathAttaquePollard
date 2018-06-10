@@ -8,12 +8,9 @@ def calculerE(p, q):
         e += 1
     return e
 
-def chiffrement(p, q, message):
+def chiffrement(p, q, message, e):
     n = p * q
-    e = calculerE(p, q)
-    d = calculerD(p, q, e)
     messageChiffre = pow(int(message), e, n)
-    print ("Le message M est chiffré, voici son réusltat :" + str(messageChiffre) + ". La clé privée est (" + str(n) + ", " + str(d) + "). La clé publique est (" + str(n) + ", " + str(e) + ")")
     return messageChiffre
 
 def calculerD(p, q, e):
@@ -24,14 +21,11 @@ def calculerD(p, q, e):
 
     return d
 
-def inverseModulo(e, phin):
-    if(pgcd(e, phin) == 1):
-        d = 3
-        while ((e*d) % phin != 1):
-            d += 1
-        return d
-    return False
-
+def messageSansTableau(tableauMessageCrypte):
+    message = ''
+    for i in tableauMessageCrypte:
+        message = message + str(i)
+    return message
 
 def dechiffrement(p, q, message, e):
     n = p * q

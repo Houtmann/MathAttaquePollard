@@ -3,7 +3,7 @@ import Pollard2
 import Pollard3
 import Pollard1
 from utils import message_to_number
-from chiffrement import chiffrement, construction_cle, dechiffrement, calculerE
+from chiffrement import chiffrement, construction_cle, dechiffrement, calculerE, calculerD, messageSansTableau, number_to_message
 import cProfile, pstats, io
 
 if __name__ == '__main__':
@@ -21,28 +21,51 @@ if __name__ == '__main__':
     while q == '':
         q = input('Entrez la valeur pour q: ')
     n = construction_cle(int(p), int(q))
-        
-    e = calculerE(p, q)
-    message = input('Entrer le message à chiffrer : ')
 
-    message_tab = message_to_number(n, message)
+    
+    
+    message = input('Entrer le message à chiffrer : ')
+    
+    
+    print('*****************************')
+    print('***********  CLES ***********')
+    print('*****************************')
+    e = calculerE(p, q)
+    d = calculerD(p, q, e)
+    print ("La clé privée est (" + str(n) + ", " + str(d) + ").")
+    print ("La clé publique est (" + str(n) + ", " + str(e) + ").")
+    print('*****************************')
+    print('*****************************')
+
+
+    message_tab = message_to_number(message)
 
     message_code = []
     for i in message_tab:
         print('depart : ' + i)
         print('crypter ' + str(chiffrement(int(p), int(q), int(i), e)))
         message_code.append(chiffrement(int(p), int(q), int(i), e))
-
     print("Le message codé est : " + str(message_code))
+    
     print('*****************************')
     print('*****************************')
-    print('Message déchiffrer :')
-
-
+    
     message_decoder = []
     for i in message_code:
-        message_decoder.append(dechiffrement(int(p), int(q), int(i), e))
-    print(message_decoder)
+        message_decoder.append(dechiffrement(int(p), int(q), int(i), e)) 
+        
+    print("Message déchiffrer :" + str(message_decoder))
+    messageDecodeLettre = number_to_message(message_decoder)
+    
+    print("Lettres du message déchiffré: " + str(messageDecodeLettre))
+    message = ''
+    for i in messageDecodeLettre:
+        message = message + str(i)
+    print("Message entier: " + str(message))
+    
+    
+    ''' Afficher le message en un seul message, sans séparation entre les lettres '''
+    # print(messageSansTableau(message_code))
 
 
     """pr = cProfile.Profile()
