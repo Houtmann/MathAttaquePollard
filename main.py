@@ -11,39 +11,30 @@ if __name__ == '__main__':
     print('*****************************')
     print('*****************************')
     print('Bonjour Alice')
-    n = 0
-    
-    p = input('Entrez la valeur pour p: ')
-    while p == '':
-        p = input('Entrez la valeur pour p: ')
 
-    q = input('Entrez la valeur pour q: ')
-    while q == '':
-        q = input('Entrez la valeur pour q: ')
-    n = construction_cle(int(p), int(q))
 
-    
-    
-    message = input('Entrer le message à chiffrer : ')
-    
-    
-    print('*****************************')
-    print('***********  CLES ***********')
-    print('*****************************')
+    n = input('Entrez la valeur pour n: ')
+    while n == '':
+        n = input('Entrez la valeur pour n: ')
+
+    print("Attaque de Pollard En cours !!!")
+    resultat = Pollard2.pollard2(n, True)
+
+
+    p = int(resultat[0])
+    q = int(resultat[1])
+
     e = calculerE(p, q)
-    d = calculerD(p, q, e)
-    print ("La clé privée est (" + str(n) + ", " + str(d) + ").")
-    print ("La clé publique est (" + str(n) + ", " + str(e) + ").")
-    print('*****************************')
-    print('*****************************')
+
+    message = input('Entrer le message à chiffrer : ')
 
 
     message_tab = message_to_number(message)
 
     message_code = []
     for i in message_tab:
-        print('depart : ' + i)
-        print('crypter ' + str(chiffrement(int(p), int(q), int(i), e)))
+        """print('depart : ' + i)
+        print('crypter ' + str(chiffrement(int(p), int(q), int(i), e)))"""
         message_code.append(chiffrement(int(p), int(q), int(i), e))
     print("Le message codé est : " + str(message_code))
     

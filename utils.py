@@ -11,7 +11,7 @@ def pgcd(a: int, b: int):
     if b == 0:
         return a
     else:
-        r = a % b
+        r = int(a) % int(b)
         return pgcd(b, r)
 
 

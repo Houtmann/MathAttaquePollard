@@ -65,7 +65,7 @@ for n in liste_n:
     ps.print_stats()
     print(s.getvalue())"""
 
-    Pollard1.pollard1(int(n))
+    Pollard2.pollard2(int(n), True)
 
 
 end = time.time()
