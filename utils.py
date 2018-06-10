@@ -1,12 +1,6 @@
 from alphabet import alphabet
 import math
 
-def est_premier(n):
-    if n % 2 == 0 and n > 2:
-        return False
-    return all(n % i for i in range(3, int(math.sqrt(n)) + 1, 2))
-
-
 def pgcd(a: int, b: int):
     """
 
@@ -31,3 +25,13 @@ def message_to_number(n, message):
     return number
 
 
+def est_premier(n: int):	
+    """	
+	
+    :param n: Entier	
+    :return: True si est un nombre premier, False si non.	
+    """	
+    for i in range(3, n):	
+        if n % i == 0:	
+            return False	
+    return True

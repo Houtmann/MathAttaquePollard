@@ -8,10 +8,13 @@ def calculerE(p, q):
         e += 1
     return e
 
-def chiffrement(p, q, message, e):
+def chiffrement(p, q, message):
     n = p * q
-    return pow(int(message), e, n)
-
+    e = calculerE(p, q)
+    d = calculerD(p, q, e)
+    messageChiffre = pow(int(message), e, n)
+    print ("Le message M est chiffré, voici son réusltat :" + str(messageChiffre) + ". La clé privée est (" + str(n) + ", " + str(d) + "). La clé publique est (" + str(n) + ", " + str(e) + ")")
+    return messageChiffre
 
 def calculerD(p, q, e):
     d = 3
@@ -58,3 +61,7 @@ def construction_cle(p, q):
             if (est_premier(p) and est_premier(q)):
                 nombrePremier = True
                 return p * q
+
+            
+## chiffrement exemple avec le message M = CO
+

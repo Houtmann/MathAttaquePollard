@@ -11,9 +11,8 @@ if __name__ == '__main__':
     print('*****************************')
     print('*****************************')
     print('Bonjour Alice')
-    answer = input('Voulez allez entrer  p et q et construire votre n à votre guise ?')
     n = 0
-
+    
     p = input('Entrez la valeur pour p: ')
     while p == '':
         p = input('Entrez la valeur pour p: ')
@@ -22,7 +21,7 @@ if __name__ == '__main__':
     while q == '':
         q = input('Entrez la valeur pour q: ')
     n = construction_cle(int(p), int(q))
-
+        
     e = calculerE(p, q)
     message = input('Entrer le message à chiffrer : ')
 
