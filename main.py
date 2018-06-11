@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
     p = int(resultat[0])
     q = int(resultat[1])
-    print(p, q)
+    print('p = ' + str(p) ,  'q = ' + str(q))
     message_decoder = []
     d = calculerD(p, q, e)
     print('La valeur de la clé de decryptage est d = ' + str(d))
