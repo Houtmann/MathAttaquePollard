@@ -44,11 +44,13 @@ if __name__ == '__main__':
 
     p = int(resultat[0])
     q = int(resultat[1])
-    
+    print(p, q)
     message_decoder = []
+    d = calculerD(p, q, e)
+    print('La valeur de la clé de decryptage est d = ' + str(d))
     for i in message_code:
-        message_decoder.append(dechiffrement(int(p), int(q), int(i), int(e)))
-        
+        message_decoder.append(dechiffrement(int(p), int(q), int(i), int(e), int(d)))
+
     print("Message déchiffrer :" + str(message_decoder))
     messageDecodeLettre = number_to_message(message_decoder)
     

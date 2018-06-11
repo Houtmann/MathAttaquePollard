@@ -2,7 +2,7 @@ import random
 from utils import *
 
 def calculerE(p, q):
-    e = 3
+    e = 10
     phin = ((int(p)-1)*(int(q)-1))
     while pgcd(e, phin) != 1:
         e += 1
@@ -15,9 +15,10 @@ def chiffrement(n , message, e):
 def calculerD(p, q, e):
     d = 3
     phin = ((int(p) - 1) * (int(q) - 1))
-    while ((d * e) % phin) != 1:
-        d += 1
 
+    while math.fmod(int(d )* int(e), phin) != 1:
+
+        d += 1
     return d
 
 def messageSansTableau(tableauMessageCrypte):
@@ -26,16 +27,15 @@ def messageSansTableau(tableauMessageCrypte):
         message = message + str(i)
     return message
 
-def dechiffrement(p, q, message, e):
+def dechiffrement(p, q, message, e, d):
     n = p * q
 
     phin = ((p - 1) * (q - 1))
 
-    d = calculerD(p, q , e)
-
-
 
     return pow(int(message), d, n)
+
+
 
 def construction_cle(p, q):
     """
