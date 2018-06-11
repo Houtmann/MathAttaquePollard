@@ -16,14 +16,13 @@ if __name__ == '__main__':
     while n == '':
         n = input('Entrez la valeur pour n: ')
 
-    print("Attaque de Pollard En cours !!!")
-    resultat = Pollard2.pollard2(n, True)
+    e = input('Entrez la valeur pour e: ')
+    while e == '':
+        e = input('Entrez la valeur pour  e: ')
 
 
-    p = int(resultat[0])
-    q = int(resultat[1])
 
-    e = calculerE(p, q)
+
 
     message = input('Entrer le message à chiffrer : ')
 
@@ -34,15 +33,21 @@ if __name__ == '__main__':
     for i in message_tab:
         """print('depart : ' + i)
         print('crypter ' + str(chiffrement(int(p), int(q), int(i), e)))"""
-        message_code.append(chiffrement(int(p), int(q), int(i), e))
+        message_code.append(chiffrement(int(n), int(i), e))
     print("Le message codé est : " + str(message_code))
     
     print('*****************************')
     print('*****************************')
+
+    print("Attaque de Pollard En cours !!!")
+    resultat = Pollard2.pollard2(n, True)
+
+    p = int(resultat[0])
+    q = int(resultat[1])
     
     message_decoder = []
     for i in message_code:
-        message_decoder.append(dechiffrement(int(p), int(q), int(i), e)) 
+        message_decoder.append(dechiffrement(int(p), int(q), int(i), int(e)))
         
     print("Message déchiffrer :" + str(message_decoder))
     messageDecodeLettre = number_to_message(message_decoder)

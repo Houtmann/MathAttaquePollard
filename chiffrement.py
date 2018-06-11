@@ -8,9 +8,8 @@ def calculerE(p, q):
         e += 1
     return e
 
-def chiffrement(p, q, message, e):
-    n = p * q
-    messageChiffre = pow(int(message), e, n)
+def chiffrement(n , message, e):
+    messageChiffre = pow(int(message), int(e), int(n))
     return messageChiffre
 
 def calculerD(p, q, e):
